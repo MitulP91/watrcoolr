@@ -5,6 +5,10 @@ class MessagesController < ApplicationController
     @messages = type_class.all
   end
 
+  def create
+    
+  end
+
   # Starts private functions
   private
 

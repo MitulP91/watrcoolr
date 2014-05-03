@@ -18,6 +18,11 @@ class RoomsController < ApplicationController
     render nothing: true
   end
 
+  # Parameters
+  def message_params
+    params.require(:message).permit(:msg_content, :self_destruct, :self_destruct_time, :self_destruct_type, :type)
+  end
+
   # Controls all redis subscriptions to each room ----------------------------------------
   def events
     response.headers['Content-Type'] = 'text/event-stream' # Starts a Redis event stream (thread)
