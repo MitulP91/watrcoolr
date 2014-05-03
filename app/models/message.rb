@@ -10,17 +10,10 @@ class Message < ActiveRecord::Base
 end
 
 class Text < Message
-
-
 end
 
 class Video < Message
-
-
 end
 
 class Image < Message
-
-
-
 end
