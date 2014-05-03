@@ -6,7 +6,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(room_params)
+    @message = Message.create(message_params)
+  end
+
+  # Parameters
+  def message_params
+    params.require(:message).permit(:msg_content, :self_destruct, :self_destruct_time, :self_destruct_type, :type)
   end
 
   # Starts private functions
