@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140503233214) do
 
   # These are extensions that must be enabled in order to support this database
@@ -20,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140503233214) do
     t.boolean  "self_destruct"
     t.integer  "self_destruct_time"
     t.string   "self_destruct_type"
-    t.string   "type"
+    t.string   "msg_type"
     t.integer  "room_id"
     t.integer  "user_id"
     t.datetime "created_at"

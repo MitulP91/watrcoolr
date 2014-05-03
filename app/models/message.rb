@@ -2,11 +2,11 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :room
 
-  self.inheritance_column = :type
+  self.inheritance_column = :msg_type
 
-  scope :texts, -> { where(type: 'Text') } 
-  scope :videos, -> { where(type: 'Video') } 
-  scope :images, -> { where(type: 'Image') }
+  scope :texts, -> { where(msg_type: 'Text') } 
+  scope :videos, -> { where(msg_type: 'Video') } 
+  scope :images, -> { where(msg_type: 'Image') }
 end
 
 class Text < Message
