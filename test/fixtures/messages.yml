@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  self_destruct: false
+  self_destruct_time: 1
+  self_destruct_type: MyString
+
+two:
+  self_destruct: false
+  self_destruct_time: 1
+  self_destruct_type: MyString
