@@ -6,6 +6,12 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use a puma web server for multi-threading (concurrent users)
+gem 'puma'
+
+# Use redis as a pub/sub service
+gem 'redis'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
