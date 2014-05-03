@@ -6,6 +6,9 @@ class CreateMessages < ActiveRecord::Migration
       t.string :self_destruct_type
       t.string :type
 
+      t.integer :room_id
+      t.integer :user_id
+      
       t.timestamps
     end
   end
