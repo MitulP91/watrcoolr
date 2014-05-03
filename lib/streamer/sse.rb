@@ -1,4 +1,4 @@
-ssrequire 'json'
+require 'json'
 
 module Streamer
   class SSE

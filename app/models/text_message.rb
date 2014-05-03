@@ -1,0 +1,3 @@
+class TextMessage < TextMessage
+  
+end
