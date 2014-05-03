@@ -8,3 +8,19 @@ class Message < ActiveRecord::Base
   scope :videos, -> { where(type: 'Video') } 
   scope :images, -> { where(type: 'Image') }
 end
+
+class Text < Message
+
+
+end
+
+class Video < Message
+
+
+end
+
+class Image < Message
+
+
+
+end

@@ -10,6 +10,9 @@ gem 'devise'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use faker to seed the db
+gem 'faker'
+
 # Use a puma web server for multi-threading (concurrent users)
 gem 'puma'
 
