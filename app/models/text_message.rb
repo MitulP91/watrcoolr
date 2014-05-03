@@ -1,3 +1,0 @@
-class TextMessage < TextMessage
-  
-end

@@ -62,7 +62,7 @@ first_msg = Message.create(
 	self_destruct: true,
 	self_destruct_time: 0,
 	self_destruct_type: "all_viewed",
-	type: "Text",
+	msg_type: "Text",
 	room_id: ogCooler.id,
 	user_id: gForce.id,
 	msg_content: "What up world this is the first message in our seeds file."
@@ -72,7 +72,7 @@ second_msg = Message.create(
 	self_destruct: true,
 	self_destruct_time: 60,
 	self_destruct_type: "timed",
-	type: "Text",
+	msg_type: "Text",
 	room_id: ogCooler.id,
 	user_id: noob.id,
 	msg_content: "Yo @gForce you're a fucking troll you nerd... aLLLLERRRRTTTTT"
@@ -82,7 +82,7 @@ third_msg = Message.create(
 	self_destruct: false,
 	self_destruct_time: 0,
 	self_destruct_type: "never",
-	type: "Text",
+	msg_type: "Text",
 	room_id: ogCooler.id,
 	user_id: mittRomney.id,
 	msg_content: "Sup fools this your shouldve been president Mitt Romney"

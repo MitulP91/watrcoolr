@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
 
   # Parameters
   def message_params
-    params.require(:message).permit(:msg_content, :self_destruct, :self_destruct_time, :self_destruct_type, :type)
+    params.require(:message).permit(:msg_content, :self_destruct, :self_destruct_time, :self_destruct_type, :msg_type)
   end
 
   # Starts private functions
