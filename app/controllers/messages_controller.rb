@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    
+    @message = Message.create(room_params)
   end
 
   # Starts private functions
