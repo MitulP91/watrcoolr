@@ -1,1 +1,13 @@
-<h1>You are here</h1>
+<% if @rooms.length > 0 %>
+  <ul id="room-list" class="roomlist">
+    <% @rooms.each do |room| %>
+      <li>
+        <%= link_to room.name, room_path(room) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <ul id="room-list-empty" class="roomlist"> 
+    <li>No rooms exist yet. Create one!</li> 
+  </ul>
+<% end %>
