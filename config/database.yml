@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: watrcoolr_development
   pool: 5
-  username: ENV["PG_USERNAME"]
-  password: ENV["PG_PASSWORD"]
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
   host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
