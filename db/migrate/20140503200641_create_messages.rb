@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration
       t.boolean :self_destruct
       t.integer :self_destruct_time
       t.string :self_destruct_type
+      t.string :type
 
       t.timestamps
     end
