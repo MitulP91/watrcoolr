@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  private: false
+  message_scrub: false
+  voting: MyString
+  mms: false
+  last_post: 2014-05-03 16:01:53
+
+two:
+  name: MyString
+  description: MyText
+  private: false
+  message_scrub: false
+  voting: MyString
+  mms: false
+  last_post: 2014-05-03 16:01:53
