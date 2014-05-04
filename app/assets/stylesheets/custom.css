@@ -4,6 +4,14 @@ html, body { height: 100%; }
 body {
   padding-top: 75px;
 }
+
+/*============
+  Navigation
+============*/
+.navbar-brand, .navbar a {
+  color: #71B8FF !important;
+}
+
 /*=============
 	Room
 =============*/
@@ -48,16 +56,31 @@ body {
 /*==========
   Devise
 ===========*/
+.sign-in, .sign-up, .edit-user {
+  padding-bottom: 15px; 
+  border-radius: 3px;
+  border: 2px solid #71B8FF;
+  box-shadow: 1px 1px 2px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+
 .sign-in {
-  margin-top: 15%;
-  border-radius: 4px;
-  background: rgb(69,144,232);
-  padding-bottom: 15px;
+  height: 310px;
+  width: 300px;
+  margin-top: -155px;
+  margin-left: -150px;
 }
 
 .sign-up {
-  background: white;
-  border-radius: 4px;
-  padding-bottom: 15px; 
-  box-shadow: 2px 2px 5px black;
+}
+
+.edit-user {
+  padding-left: 5px;
+  height: 500px;
+  width: 250px;
+  margin-top: -250px;
+  margin-left: -125px;
 }
