@@ -5,11 +5,11 @@ $(document).ready(function() {
 
   $('#new_message input[type="submit"]').on('click', function() {
     sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
-    $('#msg_content').val('');
   });
 
   // Declare functions
   function sendMessage(string, room_id) {
+    $('#msg_content').val('');
     console.log('message sent');
     $.ajax({
       type: 'POST',
