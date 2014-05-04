@@ -2,16 +2,22 @@
 
 <div class="watrcoolr container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <h1><%= @room.name %></h1>
             <span>Population: <%= @room.users.length %></span>
             /
             <span>Messages Sent: <%= @room.messages.length %></span>
+
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
             <div class="room" id="room-<%= @room.id.to_i %>">
               <!-- Contains all past messages -->
               <div id="messages">
                 <% @messages.each do |message| %>
-                  <p class="chat-msg"><span class="user-msg"><%= message.user.username %>:</span> <%= message.msg_content %></p>
+                  <p class="chat-msg"><span class="user-msg"><%= message.updated_at.to_formatted_s %>: <%= message.user.username %>:</span> <%= message.msg_content %></p>
                 <% end %>
               </div>
 
@@ -28,10 +34,14 @@
                   <%= submit_tag "Speak", class: 'submit-text btn btn-default' %>
                 <% end %>
               </div>
-            </div>
+            </div><!-- /.room -->
         </div><!-- /.col-md-9 -->
-        <div class="current-users col-md-3">
-            <h4>Current Users:</h4>
-        </div><!-- /.col-md-3 -->
+        <div class="col-md-3">
+          <h4>Users:</h4>
+          <% @room.users.each do |user| %>
+            <p><%= user.username %></p>
+          <% end %>
+          <hr>
+        </div>
     </div><!-- /.row -->
 </div><!-- /.container -->
