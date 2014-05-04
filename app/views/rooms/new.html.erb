@@ -1,29 +1,29 @@
 <%= form_for @room, url: '/rooms/create' do |f| %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
   </div>
   <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= label_tag :description %>
+    <%= text_area_tag :description %>
   </div>
   <div>
-    <%= f.label :private %>
-    <%= f.radio_button :private, true, :checked => true %> Yes
-    <%= f.radio_button :private, false %> No
+    <%= label_tag :private %>
+    <%= radio_button_tag :private, true, :checked => true %> Yes
+    <%= radio_button_tag :private, false %> No
   </div>
-    <%= f.hidden_field :message_scrub , value: false %>
+    <%= hidden_field_tag :message_scrub , value: false %>
   <div>
-    <%= f.label :voting %>
-    <%= f.radio_button :voting, true, :checked => true %> Yes
-    <%= f.radio_button :voting, false %> No
-  </div>
-  <div>
-    <%= f.label :mms %>
-    <%= f.radio_button :mms, true, :checked => true %> Yes
-    <%= f.radio_button :mms, false %> No
+    <%= label_tag :voting %>
+    <%= radio_button_tag :voting, true, :checked => true %> Yes
+    <%= radio_button_tag :voting, false %> No
   </div>
   <div>
-    <%= f.submit %>
+    <%= label_tag :mms %>
+    <%= radio_button_tag :mms, true, :checked => true %> Yes
+    <%= radio_button_tag :mms, false %> No
+  </div>
+  <div>
+    <%= submit_tag %>
   </div>
 <% end %>
