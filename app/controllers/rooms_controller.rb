@@ -39,8 +39,6 @@ class RoomsController < ApplicationController
       on.message do |event, data|
         if event == "add_message_#{room_id}" # For the add song subscription
           sse.write(data, event: "add_message_#{room_id}")
-        elsif event == "heart" # For the heartbeat subscription
-          sse.write(data, event: "heart")
         end
       end
     end

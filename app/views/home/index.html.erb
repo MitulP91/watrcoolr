@@ -8,6 +8,7 @@
           <h4><%= @user.username %> </h4>
           <p>Number of Rooms: <%= @user.rooms.length %></p>
           <p>Messages Sent: <%= @user.messages.length %></p>
+          <p><%= link_to "Settings", controller: "devise/registrations", action: "edit", class: "article"%></p>
         <% end %>
     </div>
     <div class="col-md-3 col-md-offset-1">
@@ -19,7 +20,7 @@
             <% @rooms.each do |room| %>
               <li>
                 <h4><%= link_to room.name, room_path(room) %></h4>
-                <p>Population: <%= room.users.length %></p>
+                <p>Population: <%= room.users.length %> / Messages Sent: <%= room.messages.length %></p>
               </li>
               <hr>
             <% end %>

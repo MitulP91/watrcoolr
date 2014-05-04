@@ -17,6 +17,12 @@ Watrcoolr::Application.routes.draw do
   resources :videos, controller: 'messages', msg_type: 'Video' 
   resources :images, controller: 'messages', msg_type: 'Image'
 
+  # Authenticated Root
+  authenticated :user do
+    root to: 'home#index', as: :authenticated_root
+  end
+
   # root url
-  root :to => 'home#index'
+  # root :to => 'home#index'
+  root :to => 'home#landing'
 end
