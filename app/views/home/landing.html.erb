@@ -3,36 +3,54 @@
 <style>
 body {
 	color: #71B8FF;
+	background: -webkit-radial-gradient(#D3D3D3,  white); /* Safari 5.1 to 6.0 */
+	background: -o-radial-gradient(#D3D3D3,  white); /* For Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(#D3D3D3,  white); /* For Firefox 3.6 to 15 */
+	background: radial-gradient(#D3D3D3,  white); /* Standard syntax */
 }	
 
 .landing {
 	position: absolute;
-	height: 500px;
-	width: 500px;
+	height: 800px;
+	width: 800px;
 	top: 50%;
 	left: 50%;
-	margin-left: -250px;
-	margin-top: -250px;
+	margin-left: -400px;
+	margin-top: -400px;
 }
 
 .landing h1 {
 	margin-top: 25%;
-	font-size: 5em;
+	font-size: 8em;
+	font-weight: bolder;
 	letter-spacing: .1em;
 }
 
 .landing h3 {
-	color: #d3d3d3;
-	margin-top: 10%;
-	margin-bottom: 10%; 
+	color: white;
+	font-size: 3em;
+	margin-top: 1%;
+	margin-bottom: 15%; 
 }
 
 .landing a {
-	background: none;
-	border: 1px solid #71B8FF;;
 	border-radius: 4px;
-	padding: 10px 20px;
-	color: #71B8FF;
+	padding: 20px 40px;
+	font-size: 2em;
+	color: white;
+	background: #71B8FF;
+	text-decoration: none;
+}
+
+.landing a:hover {
+	background: white;
+	color: #71B8FF; 
+}
+
+@media (max-width: 650px) {
+  .landing h1 {
+  	font-size: 4.75em;
+  }
 }
 </style>
 

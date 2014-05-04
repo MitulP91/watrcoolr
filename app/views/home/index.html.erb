@@ -1,25 +1,35 @@
 <%= render "test/nav" %>
-<div class="container">
+<div class="home container">
   <div class="row">
-    <div class="col-md-3 col-md-offset-2">
-        <h2>Profile</h2>
-        <hr>
+   
+    <div class="col-md-3 col-md-offset-1">
         <% if user_signed_in? %>
-          <h4><%= @user.username %> </h4>
-          <p>Number of Rooms: <%= @user.rooms.length %></p>
-          <p>Messages Sent: <%= @user.messages.length %></p>
-          <p><%= link_to "Settings", controller: "devise/registrations", action: "edit", class: "article"%></p>
+        <h1 class="home-user"><%= @user.username %></h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+              <p>Number of Rooms: <%= @user.rooms.length %></p>
+                <p>Messages Sent: <%= @user.messages.length %></p>
+                <p><%= link_to "Profile Settings", controller: "devise/registrations", action: "edit", class: "article"%></p>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
         <% end %>
     </div>
-    <div class="col-md-3">
+
+    <div class="col-md-8">
       <h2>Rooms</h2>
+      <%= link_to 'Create a Room', new_room_path %>
       <hr>
       <div class="rooms">
-        <% if @rooms.length > 0 %>
+        <% if @current_user_rooms.length == 0 %>
+          <p>You're not a part of any rooms! Create one, or, make some friends!</p>
+        <% elsif @current_user_rooms.length > 0 %>
           <ul id="room-list" class="roomlist list list-unstyled">
             <% @current_user_rooms.each do |room| %>
               <li>
-                <h4><%= link_to room.name, room_path(room) %></h4>
+                <h3><%= link_to room.name, room_path(room) %></h3>
                 <p>Population: <%= room.users.length %> / Messages Sent: <%= room.messages.length %></p>
               </li>
               <hr>
