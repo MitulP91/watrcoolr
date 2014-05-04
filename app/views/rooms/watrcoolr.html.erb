@@ -3,8 +3,8 @@
 <div class="watrcoolr container">
     <div class="row">
         <div class="col-md-12">
-            <h1><%= @room.name %></h1>
-            <span>Population: <%= @room.users.length %></span>
+            <h1><%= @room.name %> </h1>
+            <span> Population: <%= @room.users.length %></span>
             /
             <span>Messages Sent: <%= @room.messages.length %></span>
 
@@ -20,6 +20,8 @@
                   <p class="chat-msg"><span class="user-msg"><%= message.updated_at.to_formatted_s %>: <%= message.user.username %>:</span> <%= message.msg_content %></p>
                 <% end %>
               </div>
+
+              <hr>
 
               <!-- Box to input messages -->
               <div id="input-box">
@@ -38,10 +40,10 @@
         </div><!-- /.col-md-9 -->
         <div class="col-md-3">
           <h4>Users:</h4>
+          <hr>
           <% @room.users.each do |user| %>
             <p><%= user.username %></p>
           <% end %>
-          <hr>
         </div>
     </div><!-- /.row -->
 </div><!-- /.container -->
