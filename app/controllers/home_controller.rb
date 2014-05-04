@@ -3,4 +3,8 @@ class HomeController < ApplicationController
     @rooms = Room.all
     @user = current_user
   end
+
+  def landing
+  	render :layout 	=> false
+  end
 end
