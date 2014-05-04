@@ -32,6 +32,29 @@
         <% end %>
       </div>
     </div>
+    <div class="col-md-3">
+      <h2>Tribunals</h2>
+      <hr>
+      <div class="tribs">
+        <% if @current_user_tribunals.length > 0 %>
+          <ul id="trib-list" class="triblist list list-unstyled">
+            <% @current_user_tribunals.each do |trib| %>
+            <% if trib[0].votes_against > 0 %>
+              <li class="red">
+            <% else %>
+              <li class="green">
+            <% end %>
+                <h4><%= trib[1] %> Cooler's tribunal</h4>
+                <ul class="votes-list">
+                  <li><label for="votes_for">Votes For:</label><%= trib[0].votes_for %></li>
+                  <li><label for="votes_against">Votes Against:</label><%= trib[0].votes_against %></li>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
   </div><!-- /.row -->
 </div><!-- /.container -->
 

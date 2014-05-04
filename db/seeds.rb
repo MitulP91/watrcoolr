@@ -53,6 +53,14 @@ noob = User.create(
 	lastname: "Moisen"
 )
 
+turd = User.create(
+	email: "turd@ferguson.com",
+	password: "password",
+	username: "turdFerguson",
+	firstname: "Turd",
+	lastname: "Ferguson"
+)
+
 gForce.rooms << ogCooler
 mittRomney.rooms << ogCooler
 noob.rooms << ogCooler
@@ -89,8 +97,17 @@ third_msg = Message.create(
 )
 
 
+tribunal = Tribunal.create(
+	room_id: ogCooler.id,
+	user_id: turd.id,
+	votes_for: 0,
+	votes_against: 0,
+	total_votes: 3,
+	active: true
+)
 
-
+ogCooler.tribunals << tribunal
+turd.tribunals << tribunal
 
 
 
