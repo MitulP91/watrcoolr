@@ -1,0 +1,55 @@
+<%= stylesheet_link_tag :bootstrap%>
+
+<style>
+body {
+	background: -webkit-linear-gradient(rgb(48,23,255), rgb(89,134,255)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgb(48,23,255), rgb(89,134,255)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgb(48,23,255), rgb(89,134,255)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgb(48,23,255), rgb(89,134,255)); /* Standard syntax */
+}	
+
+.landing {
+	position: absolute;
+	height: 500px;
+	width: 500px;
+	top: 50%;
+	left: 50%;
+	margin-left: -250px;
+	margin-top: -250px;
+}
+
+.landing h1 {
+	color: white;
+	margin-top: 25%;
+	font-size: 5em;
+	letter-spacing: .1em;
+	/*-webkit-text-stroke-width: 1px;*/
+   	/*-webkit-text-stroke-color: black;*/
+}
+
+.landing h3 {
+	color: #eee;
+	margin-top: 10%;
+	margin-bottom: 10%; 
+}
+
+.landing a {
+	background: none;
+	border: 1px solid white;
+	border-radius: 4px;
+	color: white;
+	padding: 10px 20px;
+	color: white;
+	text-decoration: none;
+}
+</style>
+
+
+<div class="container">
+<div class="landing text-center">
+	<h1>WatrCoolr</h1>
+	<h3>Ephemeral Group Chat</h3>
+	<%= link_to "Login", controller: "devise/sessions", action: "new", class: "article"%>
+	<%= link_to "Sign Up", controller: "devise/registrations", action: "new", class: "article" %>
+</div>
+</div>

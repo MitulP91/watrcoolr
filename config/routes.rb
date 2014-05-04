@@ -12,11 +12,17 @@ Watrcoolr::Application.routes.draw do
 
   # messages routes
   resources :messages
-  post '/messages/create', to: 'messages#create'
+  post '/rooms/push_message', to: 'rooms#push_message'
   resources :texts, controller: 'messages', msg_type: 'Text' 
   resources :videos, controller: 'messages', msg_type: 'Video' 
   resources :images, controller: 'messages', msg_type: 'Image'
 
+  # Authenticated Root
+  authenticated :user do
+    root to: 'home#index', as: :authenticated_root
+  end
+
   # root url
-  root :to => 'home#index'
+  # root :to => 'home#index'
+  root :to => 'home#landing'
 end
