@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :rooms
   has_many :messages
+  has_many :tribunals
 
   delegate :texts, :videos, :images, to: :messages
 
@@ -11,6 +12,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  
+
 
 end
