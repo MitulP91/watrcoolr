@@ -18,7 +18,17 @@
               <!-- Contains all past messages -->
               <div id="messages">
                 <% @messages.each do |message| %>
-                  <p class="chat-msg"><span class="user-msg"><%= message.updated_at.to_formatted_s %>: <%= message.user.username %>:</span> <%= message.msg_content %></p>
+                  <% if current_user.id == message.user.id %>
+                    <div class="current-user-msg chat-msg">
+                  <% else %>
+                    <div class="user-msg chat-msg">
+                  <% end %>
+                      <h4><%= message.user.username %></h4>
+                      <p class="msg-date"><%= message.updated_at %></p>
+                      <p class="msg-body"><%= message.msg_content %></p>
+                  </div>
+                  <div style="clear:both"></div>
+                  <br>
                 <% end %>
               </div>
               <hr>
@@ -37,11 +47,15 @@
               </div>
             </div><!-- /.room -->
         </div><!-- /.col-md-9 -->
-        <div class="col-md-3">
-          <h4>Users:</h4>
+        <div class="current-users col-md-3">
+          <h2>Users:</h2>
           <hr>
           <% @room.users.each do |user| %>
-            <p><%= image_tag avatar_url(user) %><%= user.username %></p>
+            <div class="current-user">
+              <%= image_tag avatar_url(user) %>
+              <h3> <%= user.username %></h3>
+              <hr>
+            </div>
           <% end %>
         </div>
     </div><!-- /.row -->
