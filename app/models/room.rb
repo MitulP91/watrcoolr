@@ -3,4 +3,6 @@ class Room < ActiveRecord::Base
   has_many :messages
 
   delegate :texts, :videos, :images, to: :messages
+
+  
 end
