@@ -2,20 +2,26 @@ var room_id;
 
 $(document).ready(function() {
   prepareBroadcast();
+  var value = $('input[name=msg_content]').val();
 
-  $('#new_message input[type="submit"]').on('click', function() {
-    sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
+  $('#input-box form').on('ajax:success', function() {
+    // sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
+    $('#msg_content').val('');
   });
 
   // Declare functions
   function sendMessage(string, room_id) {
-    $('#msg_content').val('');
+    
     console.log('message sent');
     $.ajax({
       type: 'POST',
       url: '/rooms/add_message',
       dataType: 'json',
-      data: {msg_content: string, room: room_id}
+      data: {msg_content: string, room: room_id},
+      success: function(){
+        console.log('blarg');
+        $('#msg_content').val('');
+      }
     });
   }
 
@@ -38,7 +44,7 @@ $(document).ready(function() {
         data = JSON.parse(e.data);
         console.log(data);
         // $('#room-' + room_id + " #messages").append('<div><span class="content">'+data.message+'</span><br/><span class="author"> - '+data.author+'</span></div><hr/></div>');
-        $('#room-' + room_id + " #messages").append('<p>' + data.message + '</p>');
+        $('#room-' + room_id + " #messages").append('<p class="chat-msg"><span class="user-msg">' + data.author + ':</span> ' + data.message + '</p>');
         $('#messages').scrollTop(999999);
       });
     }
