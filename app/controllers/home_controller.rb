@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @current_user_rooms = current_user.rooms
     @tribunals = current_user.tribunals
     @current_user_tribunals = []
-
+   	
     current_user.tribunals.each do |a|
     	trib_info = []
     	room = Room.find(a.room_id)
