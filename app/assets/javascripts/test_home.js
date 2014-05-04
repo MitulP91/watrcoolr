@@ -2,26 +2,20 @@ var room_id;
 
 $(document).ready(function() {
   prepareBroadcast();
-  $('#input-submit').on('click', function(e) {
-    e.preventDefault();
 
-    // Pull input box content
-    var content = $('#input-content').val();
-    $('#input-content').val('');
-    var html = '<p>'+content+'</p>';
-
-    // Append it to message box
-    sendMessage(content);
-    $('#message-box').append(html);
+  $('#new_message input[type="submit"]').on('click', function() {
+    sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
+    $('#msg_content').val('');
   });
 
   // Declare functions
-  function sendMessage(string) {
+  function sendMessage(string, room_id) {
+    console.log('message sent');
     $.ajax({
       type: 'POST',
       url: '/rooms/add_message',
       dataType: 'json',
-      data: {message: string}
+      data: {msg_content: string, room: room_id}
     });
   }
 
@@ -41,12 +35,10 @@ $(document).ready(function() {
 
       // Publishes to add message to chatroom ----------------------------------------------
       source.addEventListener("add_message_"+room_id, function (e) {
-        console.log('chat redis triggered');
         data = JSON.parse(e.data);
         console.log(data);
-        num_messages++;
-        checkMessages();
-        $('#room-' + room_id + " #messages").append('<div><span class="content">'+data.message+'</span><br/><span class="author"> - '+data.author+'</span></div><hr/></div>');
+        // $('#room-' + room_id + " #messages").append('<div><span class="content">'+data.message+'</span><br/><span class="author"> - '+data.author+'</span></div><hr/></div>');
+        $('#room-' + room_id + " #messages").append('<p>' + data.message + '</p>');
         $('#messages').scrollTop(999999);
       });
     }
