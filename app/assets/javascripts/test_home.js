@@ -9,6 +9,23 @@ $(document).ready(function() {
     // $('#msg_content').val('');
   });
 
+  // Submit on Enter-Key
+  $('#input-box').keypress(function(ev){
+    if (ev.keyCode == 13 && $('#msg_content').val().length > 0) {
+      sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
+      console.log('test');
+    }
+  })
+
+  //Hide Self-Destruct Functions
+  $('#self_destruct_false').on('click',function() {
+    $('#self_destruct_time').hide();
+  })
+
+  $('#self_destruct_true').on('click',function() {
+    $('#self_destruct_time').show();
+  })
+
   // Declare functions
   function sendMessage(string, room_id) {
     $.ajax({

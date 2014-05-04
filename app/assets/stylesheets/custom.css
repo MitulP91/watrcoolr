@@ -3,6 +3,7 @@ html, body { height: 100%; }
 
 body {
   padding-top: 55px;
+  margin-bottom: 55px;
 }
 
 /*============
@@ -41,7 +42,8 @@ body {
 .chat-msg {
   border: 1px solid #71B8FF;
   display: inline-block;
-  max-width: 400px;
+  max-width: 45%;
+  min-width: 25%;
   padding: 5px;
   background: white;
   border-radius: 5px;
@@ -77,13 +79,14 @@ body {
   margin-bottom: 15px;
 }
 
+/* Submit Text */
 #msg_content {
-  width: 85%;
+  width: 55%;
 }
 
 .submit-text {
-  height: 74px;
-  width: 14%;
+  height: 54px;
+  /*width: 14%;*/
 }
 
 /* Current Users */
