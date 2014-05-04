@@ -21,6 +21,7 @@ require 'faker'
 Message.delete_all
 Room.delete_all
 User.delete_all
+Tribunal.delete_all
 
 ogCooler = Room.create(
 	name: "ogCooler",
@@ -99,14 +100,18 @@ third_msg = Message.create(
 
 tribunal = Tribunal.create(
 	room_id: ogCooler.id,
-	user_id: turd.id,
 	votes_for: 0,
 	votes_against: 0,
 	total_votes: 3,
-	active: true
+	active: true,
+	applicant_id: turd.id,
+	title: "ogCooler vote on Turd Ferguson"
 )
 
 ogCooler.tribunals << tribunal
+gForce.tribunals << tribunal
+mittRomney.tribunals << tribunal
+noob.tribunals << tribunal
 turd.tribunals << tribunal
 
 

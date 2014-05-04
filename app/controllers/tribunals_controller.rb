@@ -5,18 +5,20 @@ class TribunalsController < ApplicationController
 
 	def create
 		@tribunal = Tribunal.create(tribunal_params)
+		@room = Room.find(@tribunal.room_id)
+		@room.users.each do |user|
+			user.tribunals << @tribunal
+		end
 		render :nothing => true
 	end
 
-	def vote_for
-		@tribunal = Tribunal.find(params[:user_id])
-		@tribunal.votes_for += 1
-		Tribunal.update(@tribunal)
-	end
-
-	def vote_against
-		@tribunal = Tribunal.find(params[:user_id])
-		@tribunal.votes_against += 1
+	def vote
+		@tribunal = Tribunal.find(params[:tribunal_id])
+		if params[:vote_type] == 'for'
+			@tribunal.votes_for += 1
+		else 
+			@tribunal.votes_against += 1
+		end
 		Tribunal.update(@tribunal)
 	end
 

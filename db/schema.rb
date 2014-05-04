@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504110345) do
+ActiveRecord::Schema.define(version: 20140504132004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,18 @@ ActiveRecord::Schema.define(version: 20140504110345) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "applicant_id"
+    t.string   "title"
+  end
+
+  create_table "tribunals_users", force: true do |t|
+    t.integer "tribunal_id"
+    t.integer "user_id"
+  end
+
+  create_table "user_votes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -72,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140504110345) do
     t.string   "username"
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
