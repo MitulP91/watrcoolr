@@ -1,10 +1,10 @@
 <%= render "test/nav" %>
-<div class="container">
+<div class="home container">
   <div class="row">
    
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-3 col-md-offset-1">
         <% if user_signed_in? %>
-        <h1><%= @user.username %></h1>
+        <h1 class="home-user"><%= @user.username %></h1>
         <hr>
         <div class="row">
             <div class="col-md-6">
@@ -17,10 +17,9 @@
         </div>
         <% end %>
     </div>
-  </div><!-- /.row -->
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>Rooms</h1>
+
+    <div class="col-md-8">
+      <h2>Rooms</h2>
       <hr>
       <div class="rooms">
         <% if @rooms.length == 0 %>
