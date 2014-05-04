@@ -17,7 +17,7 @@
 
               <!-- Box to input messages -->
               <div id="input-box">
-                <%= form_for(@text_message, remote: true, url: '/messages/create', html: { :class => "#{@room.id} chat-text" }) do %>
+                <%= form_for(@text_message, remote: true, url: '/rooms/add_message', html: { :class => '#{@room.id} chat-text' }) do %>
                   <%= text_field_tag :msg_content %>
                   <%= hidden_field_tag :self_destruct, false %>
                   <%= hidden_field_tag :self_destruct_time, 60 %>
