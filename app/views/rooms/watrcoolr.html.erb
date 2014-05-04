@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-md-12">
             <h1><%= @room.name %> </h1>
+
             <span> Population: <%= @room.users.length %></span>
             /
             <span>Messages Sent: <%= @room.messages.length %></span>
@@ -12,7 +13,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-xs-12 col-md-9">
             <div class="room" id="room-<%= @room.id.to_i %>">
               <!-- Contains all past messages -->
               <div id="messages">
@@ -20,13 +21,11 @@
                   <p class="chat-msg"><span class="user-msg"><%= message.updated_at.to_formatted_s %>: <%= message.user.username %>:</span> <%= message.msg_content %></p>
                 <% end %>
               </div>
-
               <hr>
-
               <!-- Box to input messages -->
               <div id="input-box">
-                <%= form_for(@text_message, remote: true, url: '/messages', html: { :class => "#{@room.id} chat-text" }) do %>
-                  <%= text_field_tag :msg_content %>
+                <%= form_for(@text_message, remote: true, url: '/messages', html: { :class => "#{@room.id} chat-text form-inline" }) do %>
+                  <%= text_area_tag 'msg_content', nil, class: 'form-control', rows: 3 %>
                   <%= hidden_field_tag :self_destruct, false %>
                   <%= hidden_field_tag :self_destruct_time, 60 %>
                   <%= hidden_field_tag :self_destruct_type, 'timed' %>
