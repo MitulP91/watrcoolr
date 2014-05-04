@@ -12,6 +12,7 @@ $(document).ready(function() {
   // Submit on Enter-Key
   $('#input-box').keypress(function(ev){
     if (ev.keyCode == 13 && $('#msg_content').val().length > 0) {
+      $('form').submit();
       sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
       console.log('test');
     }
