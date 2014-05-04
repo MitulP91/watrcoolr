@@ -43,4 +43,9 @@ $(document).ready(function() {
       });
     }
   }
+
+  // Scroll to bottom
+  $('#messages').scrollTop($('#messages')[0].scrollHeight);
+
+
 });

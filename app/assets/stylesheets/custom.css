@@ -75,6 +75,10 @@ body {
 }
 
 .sign-up {
+  height: 460px;
+  width: 250px;
+  margin-top: -230px;
+  margin-left: -125px;
 }
 
 .edit-user {
