@@ -7,7 +7,7 @@
             <span>Population: <%= @room.users.length %></span>
             /
             <span>Messages Sent: <%= @room.messages.length %></span>
-            <div class="room" id="room-<%= @room.id %>">
+            <div class="room" id="room-<%= @room.id.to_i %>">
               <!-- Contains all past messages -->
               <div id="messages">
                 <% @messages.each do |message| %>
@@ -17,13 +17,13 @@
 
               <!-- Box to input messages -->
               <div id="input-box">
-                <%= form_for(@text_message, remote: true, url: '/rooms/add_message', html: { :class => '#{@room.id} chat-text' }) do %>
+                <%= form_for(@text_message, remote: true, url: '/messages', html: { :class => "#{@room.id} chat-text" }) do %>
                   <%= text_field_tag :msg_content %>
                   <%= hidden_field_tag :self_destruct, false %>
                   <%= hidden_field_tag :self_destruct_time, 60 %>
                   <%= hidden_field_tag :self_destruct_type, 'timed' %>
-                  <%= hidden_field_tag :room_id, @room.id.to_i %>
-                  <%= hidden_field_tag :user_id, @user_id.to_i %>
+                  <%= hidden_field_tag :room_id, @room.id %>
+                  <%= hidden_field_tag :user_id, @user_id %>
                   <%= hidden_field_tag :msg_type, 'Text' %>
                   <%= submit_tag "Speak", class: 'submit-text btn btn-default' %>
                 <% end %>

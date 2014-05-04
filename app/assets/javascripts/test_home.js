@@ -4,9 +4,9 @@ $(document).ready(function() {
   prepareBroadcast();
   var value = $('input[name=msg_content]').val();
 
-  $('#input-box form').on('ajax:success', function() {
-    // sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
-    $('#msg_content').val('');
+  $('#input-box form input[type=submit]').on('click', function() {
+    sendMessage($('#msg_content').val(), parseInt($('#new_message').attr('class')));
+    // $('#msg_content').val('');
   });
 
   // Declare functions
@@ -16,7 +16,7 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       url: '/rooms/add_message',
-      dataType: 'json',
+      dataType: 'text',
       data: {msg_content: string, room: room_id},
       success: function(){
         console.log('blarg');

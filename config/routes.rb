@@ -12,7 +12,7 @@ Watrcoolr::Application.routes.draw do
 
   # messages routes
   resources :messages
-  post '/rooms/push_message', to: 'rooms#push_message'
+  post '/messages/add_message', to: 'messages#add_message'
   resources :texts, controller: 'messages', msg_type: 'Text' 
   resources :videos, controller: 'messages', msg_type: 'Video' 
   resources :images, controller: 'messages', msg_type: 'Image'
