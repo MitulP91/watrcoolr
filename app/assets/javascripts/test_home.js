@@ -38,7 +38,18 @@ $(document).ready(function() {
       source.addEventListener("add_message_"+room_id, function (e) {
         data = JSON.parse(e.data);
         // $('#room-' + room_id + " #messages").append('<div><span class="content">'+data.message+'</span><br/><span class="author"> - '+data.author+'</span></div><hr/></div>');
-        $('#room-' + room_id + " #messages").append('<p class="chat-msg" id="message-' + data.message_id + '"><span class="user-msg">' + data.author + ':</span> ' + data.message + '</p>');
+        var html = '';
+        if(data.author_id == data.message_author_id) {
+          html += '<div class="current-user-msg chat-msg" id="message-' + data.message_id + '">';
+        } else {
+          html += '<div class="user-msg chat-msg" id="message-' + data.message_id + '">';
+        }
+        html += '<h4>' + data.author + '</h4>';
+        html += '<p class="msg-body">' + data.message + '</p>';
+        html += '</div><div style="clear:both"></div><br>';
+
+        $('#room-' + room_id + " #messages").append(html);
+        // $('#room-' + room_id + " #messages").append('<p class="chat-msg" id="message-' + data.message_id + '"><span class="user-msg">' + data.author + ':</span> ' + data.message + '</p>');
         $('#messages').scrollTop(999999);
       });
 

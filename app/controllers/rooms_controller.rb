@@ -43,12 +43,12 @@ class RoomsController < ApplicationController
 
     if(@message.self_destruct == true) 
       response.headers['Content-Type'] = 'text/javascript' # Tells Rails/Redis that content is JavaScript
-      $redis.publish("add_message_#{room}", {message: message, message_id: @message.id, author: current_user.username, room: room}.to_json)
+      $redis.publish("add_message_#{room}", {message: message, message_id: @message.id, author: current_user.username, author_id: current_user.id, message_author_id: @message.user_id, updated_at: @message.updated_at, room: room}.to_json)
       sleep(@message.self_destruct_time)
       @message.destroy;
       $redis.publish("remove_message_#{room}", {message_id: @message.id}.to_json)
     else
-      $redis.publish("add_message_#{room}", {message: message, message_id: @message.id, author: current_user.username, room: room}.to_json)
+      $redis.publish("add_message_#{room}", {message: message, message_id: @message.id, author: current_user.username, author_id: current_user.id, message_author_id: @message.user_id, updated_at: @message.updated_at, room: room}.to_json)
     end
 
     # -- Add new message to chatroom ---
