@@ -12,11 +12,9 @@ class RoomsController < ApplicationController
 
   def add_message
     response.headers['Content-Type'] = 'text/javascript' # Tells Rails/Redis that content is JavaScript
-    # @message = Message.create(message_params)
-    # message = @message.msg_content
     message = params[:msg_content]
-    # room = @message.room_id
     room = params[:room]
+    current_room = Room.find(room)
     # -- Add new message to chatroom ---
     $redis.publish("add_message_#{room}", {message: message, author: current_user.username, room: room}.to_json)
     # --- end ---
