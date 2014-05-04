@@ -23,10 +23,10 @@
       <h2>Rooms</h2>
       <hr>
       <div class="rooms">
-        <% if @rooms.length == 0 %>
-          <p>You're not apart of any rooms!</p>
-          <a href="#">Create a Room</a>
-        <% elsif @rooms.length > 0 %>
+        <% if @current_user_rooms.length == 0 %>
+          <p>You're not a part of any rooms!</p>
+          <%= link_to 'Create a Room', new_room_path %>
+        <% elsif @current_user_rooms.length > 0 %>
           <ul id="room-list" class="roomlist list list-unstyled">
             <% @current_user_rooms.each do |room| %>
               <li>

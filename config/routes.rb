@@ -3,11 +3,12 @@ Watrcoolr::Application.routes.draw do
   devise_for :users
 
   # Room routes
-  resources :rooms, only: :index do
+  resources :rooms, only: [:index, :new] do
     collection { get :events }
   end
   get '/rooms/:id', to: "rooms#watrcoolr", as: "room"
   post '/rooms/add_message', to: 'rooms#add_message'
+  post '/rooms/create', to: 'rooms#create'
 
 
   # messages routes

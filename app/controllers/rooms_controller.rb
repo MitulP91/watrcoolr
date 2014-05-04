@@ -10,6 +10,16 @@ class RoomsController < ApplicationController
     @text_message = Message.new
   end
 
+  def new
+    @room = Room.new
+  end
+
+  def create
+    @room = Room.create(room_params)
+    current_user.rooms << @room
+    redirect_to room_path(@room)
+  end
+
   def add_message
     response.headers['Content-Type'] = 'text/javascript' # Tells Rails/Redis that content is JavaScript
     message = params[:msg_content]
@@ -22,8 +32,13 @@ class RoomsController < ApplicationController
     render :nothing => true
   end
 
+  # Strong parameters
   def message_params
     params.permit(:self_destruct, :self_destruct_time, :self_destruct_type, :msg_type, :room_id, :user_id, :msg_content)
+  end
+
+  def room_params
+    params.permit(:name, :description, :private, :message_scrub, :voting, :mms, :last_post)
   end
 
   # Controls all redis subscriptions to each room ----------------------------------------
