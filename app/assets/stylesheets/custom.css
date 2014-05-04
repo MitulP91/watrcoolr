@@ -12,19 +12,30 @@ body {
   color: #71B8FF !important;
 }
 
+/*===========
+  Home
+===========*/
+.home h2 {
+  margin-top: 25px;
+}
+
 /*=============
 	Room
 =============*/
 .watrcoolr h1 {
-  display: inline-block;
+  color: #71B8FF;
+}
+
+.room-wrapper {
+  padding: 10px;
 }
 
 #messages {
-  /*width: 80%;*/
   height: 500px;
   border: 1px solid black;
+  padding-left: 10px;
   overflow-y: auto;
-  /*margin-left: 10%;*/
+  box-shadow: 1px 1px 3px black;
 }
 
 .chat-msg {
@@ -65,7 +76,6 @@ body {
   top: 50%;
   left: 50%;
 }
-
 
 .sign-in {
   height: 310px;
