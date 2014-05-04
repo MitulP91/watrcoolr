@@ -21,26 +21,12 @@ class RoomsController < ApplicationController
     $redis.publish("add_message_#{room}", {message: message, author: current_user.username, room: room}.to_json)
     # --- end ---
 
-    render :nothing => true, :status => 200
+    render :nothing => true
   end
 
   def message_params
     params.permit(:self_destruct, :self_destruct_time, :self_destruct_type, :msg_type, :room_id, :user_id, :msg_content)
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   # Controls all redis subscriptions to each room ----------------------------------------
   def events
