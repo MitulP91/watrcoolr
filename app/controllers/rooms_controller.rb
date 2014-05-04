@@ -4,19 +4,39 @@ class RoomsController < ApplicationController
   include ActionController::Live  # allows for use of SSE and concurrency (web socket)
 
   def watrcoolr
-    @room = Room.find(params[:id]);
+    @room = Room.find(params[:id])
+    @user_id = current_user.id.to_i
+    @messages = Message.where(room_id: @room.id)
     @text_message = Message.new
   end
 
   def add_message
     response.headers['Content-Type'] = 'text/javascript' # Tells Rails/Redis that content is JavaScript
-    room = current_user.room
-    message = params[:message]
+    message = params[:msg_content]
+    room = params[:room]
     # -- Add new message to chatroom ---
-    $redis.publish("add_message_#{room.id}", {message: message, author: current_user.email}.to_json)
+    $redis.publish("add_message_#{room}", {message: message, author: current_user.email, room: room}.to_json)
     # --- end ---
-    render nothing: true
+    render :nothing => true
   end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   # Controls all redis subscriptions to each room ----------------------------------------
   def events
