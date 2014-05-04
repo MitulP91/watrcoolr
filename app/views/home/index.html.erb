@@ -28,7 +28,7 @@
           <a href="#">Create a Room</a>
         <% elsif @rooms.length > 0 %>
           <ul id="room-list" class="roomlist list list-unstyled">
-            <% @rooms.each do |room| %>
+            <% @current_user_rooms.each do |room| %>
               <li>
                 <h4><%= link_to room.name, room_path(room) %></h4>
                 <p>Population: <%= room.users.length %> / Messages Sent: <%= room.messages.length %></p>
