@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-
 # Use devise for user information
 gem 'devise'
 
@@ -18,6 +17,9 @@ gem 'puma'
 
 # Use redis as a pub/sub service
 gem 'redis'
+
+# Self destructing Messages
+gem 'sidekiq'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

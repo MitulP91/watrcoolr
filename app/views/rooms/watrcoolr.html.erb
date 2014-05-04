@@ -17,7 +17,7 @@
               <!-- Contains all past messages -->
               <div id="messages">
                 <% @messages.each do |message| %>
-                  <p class="chat-msg"><span class="user-msg"><%= message.updated_at.to_formatted_s %>: <%= message.user.username %>:</span> <%= message.msg_content %></p>
+                  <p class="chat-msg" id="message-<%= message.id %>"><span class="user-msg"><%= message.updated_at.to_formatted_s %>: <%= message.user.username %>:</span> <%= message.msg_content %></p>
                 <% end %>
               </div>
 
@@ -25,15 +25,16 @@
 
               <!-- Box to input messages -->
               <div id="input-box">
-                <%= form_for(@text_message, remote: true, url: '/messages', html: { :class => "#{@room.id} chat-text" }) do %>
+                <%= form_for(@text_message, remote: true, url: '/rooms/add_message', html: { :class => "#{@room.id} chat-text" }) do %>
                   <%= text_field_tag :msg_content %>
-                  <%= hidden_field_tag :self_destruct, false %>
-                  <%= hidden_field_tag :self_destruct_time, 60 %>
+                  <%= submit_tag "Speak", class: 'submit-text btn btn-default' %>
+                  <%= radio_button_tag :self_destruct, true, :checked => true %> True
+                  <%= radio_button_tag :self_destruct, false, :checked => true %> False
+                  <%= select_tag :self_destruct_time, options_for_select([10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60], 60) %>
                   <%= hidden_field_tag :self_destruct_type, 'timed' %>
                   <%= hidden_field_tag :room_id, @room.id %>
                   <%= hidden_field_tag :user_id, @user_id %>
                   <%= hidden_field_tag :msg_type, 'Text' %>
-                  <%= submit_tag "Speak", class: 'submit-text btn btn-default' %>
                 <% end %>
               </div>
             </div><!-- /.room -->

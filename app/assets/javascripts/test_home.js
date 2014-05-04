@@ -13,7 +13,7 @@ $(document).ready(function() {
   function sendMessage(string, room_id) {
     $.ajax({
       type: 'POST',
-      url: '/rooms/add_message',
+      url: '/rooms/clear_msg_content',
       dataType: 'text',
       data: {msg_content: string, room: room_id},
       success: function(){
@@ -38,8 +38,13 @@ $(document).ready(function() {
       source.addEventListener("add_message_"+room_id, function (e) {
         data = JSON.parse(e.data);
         // $('#room-' + room_id + " #messages").append('<div><span class="content">'+data.message+'</span><br/><span class="author"> - '+data.author+'</span></div><hr/></div>');
-        $('#room-' + room_id + " #messages").append('<p class="chat-msg"><span class="user-msg">' + data.author + ':</span> ' + data.message + '</p>');
+        $('#room-' + room_id + " #messages").append('<p class="chat-msg" id="message-' + data.message_id + '"><span class="user-msg">' + data.author + ':</span> ' + data.message + '</p>');
         $('#messages').scrollTop(999999);
+      });
+
+      source.addEventListener("remove_message_"+room_id, function(e) {
+        data = JSON.parse(e.data);
+        $('#message-' + data.message_id).fadeOut(200);
       });
     }
   }
