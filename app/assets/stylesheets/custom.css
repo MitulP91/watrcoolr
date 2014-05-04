@@ -1,0 +1,46 @@
+/* General */
+body {
+	padding-top: 75px;
+}
+
+
+/*=============
+	Room
+=============*/
+.watrcoolr h1 {
+  display: inline-block;
+}
+
+#messages {
+  /*width: 80%;*/
+  height: 500px;
+  border: 1px solid black;
+  overflow-y: auto;
+  /*margin-left: 10%;*/
+}
+
+.chat-msg {
+}
+
+.user-msg {
+  font-weight: bold;
+}
+
+
+#input-box {
+  /*width: 80%;*/
+  /*height: 100x;*/
+  /*margin-left: 10%;*/
+}
+
+#input-content {
+  /*width: 70%;*/
+}
+
+#input-submit {
+  /*width: 25%;*/
+}
+
+.current-users {
+  border: 1px solid black;
+}

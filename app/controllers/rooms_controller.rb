@@ -17,12 +17,18 @@ class RoomsController < ApplicationController
     # -- Add new message to chatroom ---
     $redis.publish("add_message_#{room}", {message: message, author: current_user.email, room: room}.to_json)
     # --- end ---
+    @message = Message.create(message_params)
     render :nothing => true
   end
 
 
+  def push_message
+    
+  end
 
-
+  def message_params
+    params.permit(:self_destruct, :self_destruct_time, :self_destruct_type, :msg_type, :room_id, :user_id, :msg_content)
+  end
 
 
 
